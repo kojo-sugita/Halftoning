@@ -2,12 +2,12 @@
 /**
  * ハーフトーニング
  */
-function Halftoning(ditherType) {
+function Halftoning(halftoningType) {
     var height = 256;
     var width = 256;
     var canvas;
 
-    if ( ditherType == 0 ) {
+    if ( halftoningType == 0 ) {
         canvas = document.getElementById("myCanvas2");
     } else {
         canvas = document.getElementById("myCanvas");
@@ -21,16 +21,16 @@ function Halftoning(ditherType) {
     /* グレースケール */
     var grayImage = ToGrayscale(canvas, height, width);
 
-    var ditherImage;
-    switch ( ditherType ) {
+    var helftoningImage;
+    switch ( halftoningType ) {
         case 0:
             /* 濃度パターン法を用いたハーフトーニング */
-            ditherImage = Halftoning_DensityPatternMethod(grayImage, height, width);
+            helftoningImage = Halftoning_DensityPatternMethod(grayImage, height, width);
 
             /* canvasに表示 */
             for (var y = 0; y < height * 4; y++) {
                 for (var x = 0; x < width * 4; x++) {
-                    var I = ditherImage[y * (width * 4) + x];
+                    var I = helftoningImage[y * (width * 4) + x];
                     setPixel(canvas, x, y, I, I, I, 255);
                 }
             }
@@ -38,12 +38,12 @@ function Halftoning(ditherType) {
 
         case 1:
             /* ディザ法を用いたハーフトーニング */
-            ditherImage = Halftoning_DitherMethod(grayImage, height, width);
+            helftoningImage = Halftoning_DitherMethod(grayImage, height, width);
 
             /* canvasに表示 */
             for (var y = 0; y < height; y++) {
                 for (var x = 0; x < width; x++) {
-                    var I = ditherImage[y * width + x];
+                    var I = helftoningImage[y * width + x];
                     setPixel(canvas, x, y, I, I, I, 255);
                 }
             }
@@ -51,12 +51,12 @@ function Halftoning(ditherType) {
 
         case 2:
             /* 誤差拡散法を用いたハーフトーニング */
-            ditherImage = Halftoning_ErrorDiffusionMethod(grayImage, height, width);
+            helftoningImage = Halftoning_ErrorDiffusionMethod(grayImage, height, width);
 
             /* canvasに表示 */
             for (var y = 0; y < height; y++) {
                 for (var x = 0; x < width; x++) {
-                    var I = ditherImage[y * width + x];
+                    var I = helftoningImage[y * width + x];
                     setPixel(canvas, x, y, I, I, I, 255);
                 }
             }
