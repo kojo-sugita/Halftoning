@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=shift_JIS">
+    <title>JSTAP - HTML5による画像のハーフトーニング</title>
+    <link rel="stylesheet" href="../../../css/screen.css" type="text/css" media="all">
+    <script type="text/javascript" src="./halftoning.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header"></div>
+
+      <!--menu start-->
+      <div id="topic-path">
+        <p><a href="http://jstap.web.fc2.com">Top</a> &gt; <a href="../html5.html">HTML5</a> &gt; <a href="#">Halftoning</a></p>
+      </div>
+
+      <a name="main"></a>
+
+      <!--contents start-->
+      <div id="contents">
+        <h2><a name="jump01"></a>HTML5@Halftoning</h2>
+
+        <div id="image-area">
+          <p><b>オリジナル画像</b></p>
+          <img src="./lena.png"></img>
+          <br>
+          <input type="button" name="dither" value="濃度パターン法" onClick="Halftoning(0)">
+          <input type="button" name="dither" value="ディザ法" onClick="Halftoning(1)">
+          <input type="button" name="dither" value="誤差拡散法" onClick="Halftoning(2)">
+          <br>
+          <p><b>結果</b></p>
+          <img src="./lena.png" style="display: none">
+          <canvas id="myCanvas" width="256" height="256">canvasに対応したブラウザーで実行してください</canvas>
+          <canvas id="myCanvas2" width="1024" height="1024">canvasに対応したブラウザーで実行してください</canvas>
+        </div>
+        <!-- image-area end -->
+      </div>
+
+      <div id="footer">
+        <hr />
+        <p>
+        &copy; Copyright 2008,
+        <a href="index.html">JSTAP</a>
+        - Created by
+        <a href="mailto:kojo.sugita@gmail.com">Kojo Sugita</a>
+        </p>
+      </div>
+      <!-- footer end-->
+    </div>
+    <!--wrap end-->
+
+  </body>
+</html>
